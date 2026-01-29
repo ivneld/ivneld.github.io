@@ -81,16 +81,31 @@ content:
         title: AutoCrypt
         link: https://autocrypt.co.kr/
         # link_text: boringcompany.com
-        sub_title: PKI Team Lead / Backend Developer
-        caption: 2023-09-18 ~ Present
+        sub_title: PKI Team Lead
+        caption: 2025.04 ~ Present
         quote: >
-          2노드 HA 앱 / 인프라 아키텍처 설계를 통한 무중단 PKI 시스템 구축
-        description: | 
-          - **2노드 고가용성(HA) 통합 아키텍처 설계**: 어플라이언스 환경의 서비스 무중단을 위한 애플리케이션 및 인프라 이중화 구조 설계
-          - **PCIe HSM 이중화 및 동기화**: 하드웨어 보안 모듈 간 키 복제 및 DB 동기화 프로세스 설계를 통한 물리적 장애 대응 체계 구축
-          - **국가 기간망 보안 인프라 운영**: 한국도로공사 폐쇄망 내 차량용 PKI 시스템 납품 및 안정적 운영 주도
-          - **기술 의사결정 체계(ADR) 고도화**: 팀 내 상세 설계 및 주요 기술 결정 사항을 문서화하여 아키텍처 투명성 확보
-          - **5인 규모 PKI 팀 매니징**: 요구사항 분석부터 배포까지 전 과정을 관리하며 팀의 기술적 성장을 견인
+          3명 규모의 신규 PKI팀 빌딩 및 직접 채용을 통한 5인 팀 확장 주도 및 서비스 아키텍처 설계
+        description: |
+          - **조직 관리 및 팀 빌딩**: 신규 조직인 PKI팀의 초대 팀장으로서 직접 채용 과정을 주도하여 팀 규모를 5명으로 확대 및 안정화
+          - **DDD 기반 도메인 모델링 및 아키텍처 고도화**: 복잡한 PKI 도메인 로직을 모델을 중심으로 구조화하고, 시스템 비대화에 따라 부분적 헥사고날 아키텍처로 점진적 전환을 주도하여 외부 의존성 격리 및 유연성 확보
+          - **2노드 HA 통합 아키텍처 설계**: 어플라이언스 환경에서 서비스 무중단 운영을 위한 애플리케이션 및 인프라(HSM, DB, Redis 이중화 등) 전반의 설계 주도
+          - **ADR 고도화**: 사내 ADR 템플릿 개선을 주도하고 전파하여 팀원 간 기술 부채 관리 및 의사결정의 투명성 확보
+          - **B2B 프로젝트 관리**: 주요 고객사 대상 X.509 PKI 솔루션 납품 및 외부 모듈 연동 테스트 총괄
+          - **팀 매니징 및 채용**: 직접 채용을 통해 팀 규모를 확대(3->5)하고, 요구사항 분석부터 배포까지 프로젝트 전 과정을 총괄
+
+      - layout: left
+        title: AutoCrypt
+        link: https://autocrypt.co.kr/
+        # link_text: boringcompany.com
+        sub_title: Backend Engineer
+        caption: 2023.09 ~ Present
+        quote: >
+          기술 부채 해소와 테스트 환경 최적화를 통해 개발 생산성 향상
+        description: |
+          - **글로벌 보안 표준 기반 PKI 코어 개발**: IEEE 1609.2.1, ETSI 각 표준을 준수하는 고성능 차량용 PKI 서비스 코어 로직 구현
+          - **테스트 인프라 효율화 및 수행 시간 단축**: 애플리케이션 컨텍스트 캐싱 전략과 병렬 실행 프로세스 최적화를 통해 테스트 런타임을 70% 단축하고, CI 서버의 메모리 자원 병목 현상 해결
+          - **테스트 신뢰성 확보 및 아키텍처 표준화**: 테스트 목적에 최적화된 전용 어노테이션을 구축하여 트랜잭션 경계 불일치 문제를 근본적으로 해결하고, 개발 의도가 명확히 반영된 테스트 작성 가이드 정립
+          - **정적 분석 도구 도입**: Java Error Prone과 Checkstyle을 직접 조사하고 도입하여, 코드 컨벤션의 자동화된 검증 체계를 구축하고 잠재적인 런타임 버그를 개발 단계에서 조기 차단
 
   - title: Education # Title for the section
     layout: list # Type of content section (list/text)
