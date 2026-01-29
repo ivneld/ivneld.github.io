@@ -107,6 +107,36 @@ content:
           - **테스트 신뢰성 확보 및 아키텍처 표준화**: 테스트 목적에 최적화된 전용 어노테이션을 구축하여 트랜잭션 경계 불일치 문제를 근본적으로 해결하고, 개발 의도가 명확히 반영된 테스트 작성 가이드 정립
           - **정적 분석 도구 도입**: Java Error Prone과 Checkstyle을 직접 조사하고 도입하여, 코드 컨벤션의 자동화된 검증 체계를 구축하고 잠재적인 런타임 버그를 개발 단계에서 조기 차단
 
+- title: Skills
+  sub_title: 현재 업무에 사용중 혹은 사용했던 기술들입니다.
+  layout: list
+  content:
+    - layout: left
+      title: Backend
+      description: |
+        - Java
+        - Spring Boot, Spring MVC, Sprint Batch, Spring Security, Spring Data JPA/JDBC/Redis, Spring Cloud
+        - MariaDB, PostgreSQL
+        - JPA, Querydsl, Hibernate
+        - Junit4/5, Mockito, Cucumber, Rest Docs, Testcontainers
+        - Gradle, Maven
+        - IntelliJ
+
+    - layout: left
+      title: DevOps
+      description: |
+        - Jenkins
+        - Docker, K8S, ArgoCD, Helm
+        - HAProxy, MaxScale, Keepalived, Redis Sentinel
+        - Luna HSM
+        - K6, Ngrinder
+
+     - layout: left
+       title: Frontend
+       description: |
+         - Web Basics
+         - Thymleaf, alpine.js, htmx
+
   - title: Open Source
     layout: list
     content:
