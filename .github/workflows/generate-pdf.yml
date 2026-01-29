@@ -38,10 +38,15 @@ jobs:
 
             const page = await browser.newPage();
 
-            // GitHub Pages URL (본인의 username으로 수정 필요)
+            // GitHub Pages URL
             const username = '${{ github.repository_owner }}';
             const repo = '${{ github.event.repository.name }}';
-            const url = \`https://\${username}.github.io/\${repo}/\`;
+
+            // username.github.io 레포지토리는 루트 경로, 다른 레포는 /repo-name/
+            const isUserSite = repo === \`\${username}.github.io\`;
+            const url = isUserSite
+              ? \`https://\${username}.github.io/\`
+              : \`https://\${username}.github.io/\${repo}/\`;
 
             console.log('Loading page:', url);
             await page.goto(url, {
@@ -49,8 +54,8 @@ jobs:
               timeout: 60000
             });
 
-            // 페이지 로딩 대기
-            await page.waitForTimeout(2000);
+            // 추가 대기 (networkidle2 대신 sleep 사용)
+            await new Promise(resolve => setTimeout(resolve, 2000));
 
             // PDF 생성
             await page.pdf({
