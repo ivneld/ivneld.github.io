@@ -1,4 +1,3 @@
----
 # Site
 repository: sproogen/resume-theme
 favicon: images/favicon.ico
@@ -132,11 +131,11 @@ content:
         - Luna HSM
         - K6, Ngrinder
 
-     - layout: left
-       title: Frontend
-       description: |
-         - Web Basics
-         - Thymleaf, alpine.js, htmx
+    - layout: left
+      title: Frontend
+      description: |
+        - Web Basics
+        - Thymleaf, alpine.js, htmx
 
   - title: Open Source
     layout: list
