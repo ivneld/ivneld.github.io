@@ -1,0 +1,92 @@
+name: Generate Resume PDF
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  generate-pdf:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Wait for GitHub Pages deployment
+        run: sleep 30
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install Puppeteer
+        run: npm install puppeteer
+
+      - name: Generate PDF
+        run: |
+          node -e "
+          const puppeteer = require('puppeteer');
+
+          (async () => {
+            const browser = await puppeteer.launch({
+              headless: 'new',
+              args: ['--no-sandbox', '--disable-setuid-sandbox']
+            });
+
+            const page = await browser.newPage();
+
+            // GitHub Pages URL (본인의 username으로 수정 필요)
+            const username = '${{ github.repository_owner }}';
+            const repo = '${{ github.event.repository.name }}';
+            const url = \`https://\${username}.github.io/\${repo}/\`;
+
+            console.log('Loading page:', url);
+            await page.goto(url, {
+              waitUntil: 'networkidle2',
+              timeout: 60000
+            });
+
+            // 페이지 로딩 대기
+            await page.waitForTimeout(2000);
+
+            // PDF 생성
+            await page.pdf({
+              path: 'resume.pdf',
+              format: 'A4',
+              printBackground: true,
+              margin: {
+                top: '20px',
+                right: '20px',
+                bottom: '20px',
+                left: '20px'
+              }
+            });
+
+            console.log('PDF generated successfully');
+            await browser.close();
+          })();
+          "
+
+      - name: Upload PDF artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: resume-pdf
+          path: resume.pdf
+
+      - name: Commit PDF to repository
+        run: |
+          mkdir -p assets/downloads
+          mv resume.pdf assets/downloads/resume.pdf
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add assets/downloads/resume.pdf
+          git diff --quiet && git diff --staged --quiet || git commit -m "Update resume PDF [skip ci]"
+
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{ github.ref }}
