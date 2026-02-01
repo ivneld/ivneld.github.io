@@ -1,215 +1,226 @@
-# Site
-repository: sproogen/resume-theme
-favicon: images/favicon.ico
+# The Site Configuration
 
-# Content configuration version
-version: 2
+# Import the theme
+theme: jekyll-theme-chirpy
 
-# Personal info
-name: 김유성
-title: 서버 백엔드 엔지니어
-email: ivneld@naver.com
-# website: www.github.com/sproogen/resume-theme
+# The language of the webpage › http://www.lingoes.net/en/translator/langcode.htm
+# If it has the same name as one of the files in folder `_data/locales`, the layout language will also be changed,
+# otherwise, the layout language will use the default value of 'en'.
+lang: en
 
-# Dark Mode (true/false/never)
-darkmode: never
+# Change to your timezone › https://zones.arilyn.cc
+timezone:
 
-# Social links
-# twitter_username: facespics
-github_username:  ivneld
-# stackoverflow_username: "00000001"
-# dribbble_username: jekyll
-# facebook_username: jekyll
-# flickr_username: jekyll
-# instagram_username: jameswgrant
-linkedin_username: yuseong-kim-75b63b2b5
-# xing_username: jekyll
-# pinterest_username: jekyll
-# youtube_username: globalmtb
-# googleplus_username: +jekyll
-# orcid_username: 0000-0000-0000-0000
+# jekyll-seo-tag settings › https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
+# ↓ --------------------------
 
-# Additional icon links
-additional_links:
-- title: itsgoingto.be
-  icon: fas fa-globe
-  url: https://www.itsgoingto.be
-- title: Download PDF Resume
-  icon: fas fa-file-pdf
-  url: https://ivneld.github.io/github-pages/assets/downloads/resume.pdf
-# - title: another link
-#   icon: font awesome brand icon name (eg. fab fa-twitter) (https://fontawesome.com/icons?d=gallery&m=free)
-#   url: Link url (eg. https://google.com)
+title: Ivneld's Blog # the main title
 
-# Google Analytics and Tag Manager
-# Using more than one of these may cause issues with reporting
-# gtm: "GTM-0000000"
-# gtag: "UA-00000000-0"
-# google_analytics: "UA-00000000-0"
+tagline: A text-focused Jekyll theme # it will display as the subtitle
 
-# About Section
-# about_title: About Me
-about_profile_image: images/profile-image.jpeg
-about_content: |
-  상위 레벨의 설계를 견고한 서비스로 구체화하며, 지속 가능하게 성장하는 아키텍처를 고민하는 3년차 Java & Spring 기반의 백엔드 개발자입니다.
-  지난 3년간 보안 통신 인프라의 핵심인 PKI 시스템의 개발 및 배포, 운영 전 과정에 주도적으로 참여하며 실무 역량을 쌓아왔습니다. 북미/유럽 차량용 표준(IEEE1609.2.1, ETSI) 및 범용 표준(X.509)을 준수하는 B2B 서버 애플리케이션을 개발하며 글로벌 보안 규격에 대한 깊은 이해도를 갖추었습니다.
-  특히 X.509 PKI 프로젝트에서는 5인 규모의 팀의 팀장으로서, 상위 설계를 바탕으로 세부 설계부터 구현, 인프라 구축 및 배포까지 전 과정을 리딩했습니다. 구현 자유도가 높은 X.509의 특성상 끊임없이 유입되는 요구사항들의 기술적 필요성을 면밀히 검토하고, 이를 시스템에 유연하게 녹여낼 수 있는 성장하는 아키텍처를 구축하는 데 집중했습니다.
-  이 과정에서 복잡한 의사결정을 체계화하기 위해 사내 ADR 템플릿 고도화를 주도하였고, 팀 내에 기록 중심의 공유 문화를 정착시켜 프로젝트의 안정성을 확보했습니다. 단순히 기능을 완성하는 것을 넘어, 비즈니스 요구사항과 시스템의 확장성 사이에서 최적의 균형점을 찾기 위해 팀장으로서 끊임없이 노력하고 있습니다.
-  현재는 PKI 팀장으로서 X.509 및 IEEE1609.2.1 프로젝트의 개발과 운영을 총괄하고 있으며, 안정적인 시스템 설계와 효율적인 팀 매니징을 통해 팀과 회사의 성장에 기여하고 있습니다.
+description: >- # used by seo meta and the atom feed
+  Personal Technical Blog
 
-content:
-# - title: Projects # Title for the section
-#   layout: list # Type of content section (list/text)
-#   content:
-#     - layout: top-middle
-#       title: Super awesome project
-#       link: github.com/sproogen
-#       # link_text: Project Website
-#       additional_links:
-#         - title:  sproogen/modern-resume-theme
-#           icon: fab fa-github
-#           url: github.com/sproogen/modern-resume-theme
-#         # - title:  Github page for project (eg. sproogen/modern-resume-theme)
-#         #   icon: fab fa-github
-#         #   url: Link to project (eg. sproogen.github.io/modern-resume-theme)
-#       quote: >
-#         This is probably one of the greatest apps ever created, if you don't agree you're probably wrong.
-#       description: | # this will include new lines to allow paragraphs
-#         I started this project as a way if learning <mark>React</mark> and it has since grown into a fully fledged app. I have learned many skills through this and been I'm very proud of having this in my portfolio. If you don't have a project as awesome as this I would advise you make one.
+# Fill in the protocol & hostname for your site.
+# E.g. 'https://username.github.io', note that it does not end with a '/'.
+url: "https://ivneld.github.io"
 
-  - title: Experience # Title for the section
-    layout: list # Type of content section (list/text)
-    content:
-      - layout: left
-        title: AutoCrypt
-        link: https://autocrypt.co.kr/
-        # link_text: boringcompany.com
-        sub_title: PKI Team Lead
-        caption: 2025.04 ~ Present
-        quote: >
-          3명 규모의 신규 PKI팀 빌딩 및 직접 채용을 통한 5인 팀 확장 주도 및 서비스 아키텍처 설계
-        description: |
-          - **조직 관리 및 팀 빌딩**: 신규 조직인 PKI팀의 초대 팀장으로서 직접 채용 과정을 주도하여 팀 규모를 5명으로 확대 및 안정화
-          - **DDD 기반 도메인 모델링 및 아키텍처 고도화**: 복잡한 PKI 도메인 로직을 모델을 중심으로 구조화하고, 시스템 비대화에 따라 부분적 헥사고날 아키텍처로 점진적 전환을 주도하여 외부 의존성 격리 및 유연성 확보
-          - **2노드 HA 통합 아키텍처 설계**: 어플라이언스 환경에서 서비스 무중단 운영을 위한 애플리케이션 및 인프라(HSM, DB, Redis 이중화 등) 전반의 설계 주도
-          - **ADR 고도화**: 사내 ADR 템플릿 개선을 주도하고 전파하여 팀원 간 기술 부채 관리 및 의사결정의 투명성 확보
-          - **B2B 프로젝트 관리**: 주요 고객사 대상 X.509 PKI 솔루션 납품 및 외부 모듈 연동 테스트 총괄
-          - **팀 매니징 및 채용**: 직접 채용을 통해 팀 규모를 확대(3->5)하고, 요구사항 분석부터 배포까지 프로젝트 전 과정을 총괄
+github:
+  username: ivneld # change to your GitHub username
 
-      - layout: left
-        title: AutoCrypt
-        link: https://autocrypt.co.kr/
-        # link_text: boringcompany.com
-        sub_title: Backend Engineer
-        caption: 2023.09 ~ Present
-        quote: >
-          기술 부채 해소와 테스트 환경 최적화를 통해 개발 생산성 향상
-        description: |
-          - **글로벌 보안 표준 기반 PKI 코어 개발**: IEEE 1609.2.1, ETSI 각 표준을 준수하는 고성능 차량용 PKI 서비스 코어 로직 구현
-          - **테스트 인프라 효율화 및 수행 시간 단축**: 애플리케이션 컨텍스트 캐싱 전략과 병렬 실행 프로세스 최적화를 통해 테스트 런타임을 70% 단축하고, CI 서버의 메모리 자원 병목 현상 해결
-          - **테스트 신뢰성 확보 및 아키텍처 표준화**: 테스트 목적에 최적화된 전용 어노테이션을 구축하여 트랜잭션 경계 불일치 문제를 근본적으로 해결하고, 개발 의도가 명확히 반영된 테스트 작성 가이드 정립
-          - **정적 분석 도구 도입**: Java Error Prone과 Checkstyle을 직접 조사하고 도입하여, 코드 컨벤션의 자동화된 검증 체계를 구축하고 잠재적인 런타임 버그를 개발 단계에서 조기 차단
+twitter:
+  username: twitter_username # change to your Twitter username
 
-  - title: Skills
-    sub_title: 현재 업무에 사용중 혹은 사용했던 기술들입니다.
-    layout: list
-    content:
-    - layout: left
-      title: Backend
-      description: |
-        - Java
-        - Spring Boot, Spring MVC, Sprint Batch, Spring Security, Spring Data JPA/JDBC/Redis, Spring Cloud
-        - MariaDB, PostgreSQL
-        - JPA, Querydsl, Hibernate
-        - Junit4/5, Mockito, Cucumber, Rest Docs, Testcontainers
-        - Gradle, Maven
-        - IntelliJ
+social:
+  # Change to your full name.
+  # It will be displayed as the default author of the posts and the copyright owner in the Footer
+  name: Kim Yuseong
+  email: example@domain.com # change to your email address
+  links:
+    # The first element serves as the copyright owner's link
+    - https://twitter.com/username # change to your Twitter homepage
+    - https://github.com/ivneld # change to your GitHub homepage
+    # Uncomment below to add more social links
+    # - https://www.facebook.com/username
+    # - https://www.linkedin.com/in/username
 
-    - layout: left
-      title: DevOps
-      description: |
-        - Jenkins
-        - Docker, K8S, ArgoCD, Helm
-        - HAProxy, MaxScale, Keepalived, Redis Sentinel
-        - Luna HSM
-        - K6, Ngrinder
+# Site Verification Settings
+webmaster_verifications:
+  google: # fill in your Google verification code
+  bing: # fill in your Bing verification code
+  alexa: # fill in your Alexa verification code
+  yandex: # fill in your Yandex verification code
+  baidu: # fill in your Baidu verification code
+  facebook: # fill in your Facebook verification code
 
-    - layout: left
-      title: Frontend
-      description: |
-        - Web Basics
-        - Thymleaf, alpine.js, htmx
+# ↑ --------------------------
+# The end of `jekyll-seo-tag` settings
 
-  - title: Open Source
-    layout: list
-    content:
-      - layout: left
-        title: MovieCommunity (영화 리뷰 커뮤니티)
-        link: https://github.com/ivneld/MovieCommunity
-        quote: >
-          Spring Boot와 JPA를 활용한 5인 다직군(BE, FE, DE) 협업 커뮤니티 프로젝트
-        description: |
-          - **도메인 설계 및 API 개발**: 영화 리뷰 및 커뮤니티 기능을 위한 도메인 모델을 설계하고, RESTful API를 통해 프론트엔드와의 원활한 데이터 통신 구현
-          - **JPA 기반 데이터 최적화**: 엔티티 연관관계 매핑 및 지연 로딩 설계를 통해 쿼리 성능을 고려한 데이터 접근 계층 구축
-          - **다직군 협업**: 디자이너 및 프론트엔드 개발자와의 협업을 통해 요구사항 분석부터 배포 준비까지의 전체 소프트웨어 생명주기(SDLC) 경험
- 
-      - layout: left
-        title: K-Ranking (국내 대학 랭킹 서비스)
-        link: https://github.com/ivneld/k-ranking
-        quote: >
-          국제 대학 평가 기구의 데이터를 활용한 데이터 가공 및 랭킹 지표 제공 서비스
-        description: |
-          - **단독 백엔드 개발**: 프로젝트의 유일한 백엔드 엔지니어로서 서버 아키텍처 설계, DB 스키마 설계 및 전체 API 개발 담당
-          - **데이터 가공 및 집계**: 국제 기구의 원시 데이터를 수집하고 가공하여 사용자에게 유의미한 랭킹 지표로 치환하는 비즈니스 로직 구현
-          - **성능 중심 설계**: 복잡한 데이터 집계 요청에 대응하기 위해 효율적인 쿼리 작성 및 응답 속도 최적화 수행
+# Web Analytics Settings
+analytics:
+  google:
+    id: # fill in your Google Analytics ID
+  goatcounter:
+    id: # fill in your GoatCounter ID
+  umami:
+    id: # fill in your Umami ID
+    domain: # fill in your Umami domain
+  matomo:
+    id: # fill in your Matomo ID
+    domain: # fill in your Matomo domain
+  cloudflare:
+    id: # fill in your Cloudflare Web Analytics token
+  fathom:
+    id: # fill in your Fathom Site ID
 
-      - layout: left
-        title: Cafekiosk (Backend Base Test 세미나 자료)
-        link: https://github.com/ivneld/cafekiosk
-        quote: >
-          국제 대학 평가 기구의 데이터를 활용한 데이터 가공 및 랭킹 지표 제공 서비스
-        description: |
-          - **단독 백엔드 개발**: 프로젝트의 유일한 백엔드 엔지니어로서 서버 아키텍처 설계, DB 스키마 설계 및 전체 API 개발 담당
-          - **데이터 가공 및 집계**: 국제 기구의 원시 데이터를 수집하고 가공하여 사용자에게 유의미한 랭킹 지표로 치환하는 비즈니스 로직 구현
-          - **성능 중심 설계**: 복잡한 데이터 집계 요청에 대응하기 위해 효율적인 쿼리 작성 및 응답 속도 최적화 수행
+# Page views settings
+pageviews:
+  provider: # now only supports 'goatcounter'
 
-  - title: Education
-    layout: list
-    content:
-      - layout: left
-        title: Sejong University (세종대학교)
-        caption: 2021.03 - 2023.08
-        sub_title: Computer Science
-        quote: >
-          컴퓨터공학 전공 학사 졸업
-        description: |
-          - 자료구조, 알고리즘, 운영체제 등 컴퓨터공학 전반의 핵심 이론을 학습하며 엔지니어로서 필요한 논리적 사고의 기반을 다졌습니다.
-          - 학업 기간 중 백엔드 개발에 대한 심화 학습을 병행하여, 졸업 후 즉시 실무에 투입될 수 있는 기술적 역량을 확보했습니다.
-
-#  - title: A Little More About Me
-#    layout: text
-#    content: | # this will include new lines to allow paragraphs
-#      Alongside my interests in networks and software engineering some of my other interests and hobbies are:
-#      - Rock climbing
-#      - Gaming
-#      - Knitting
-#      - [Becoming a ninja](https://www.youtube.com/watch?v=vtg4o__aRMg)
+# Prefer color scheme setting.
 #
-#      Look at this cool image  
-#      ![Trees](/modern-resume-theme/images/landscape-trees.jpg "Trees")
+# Note: Keep empty will follow the system prefer color by default,
+# and there will be a toggle to switch the theme between dark and light
+# on the bottom left of the sidebar.
+#
+# Available options:
+#
+#     light — Use the light color scheme
+#     dark — Use the dark color scheme
+#
+theme_mode: # [light | dark]
 
-# Footer
-footer_show_references: true
-# references_title: References on request (Override references text)
+# The CDN endpoint for media resources.
+# Notice that once it is assigned, the CDN url
+# will be added to all media resources (site avatar, posts' images, audio and video files) paths starting with '/'
+#
+# e.g. 'https://cdn.com'
+cdn:
 
-# Build settings
-# remote_theme: sproogen/resume-theme
-remote_theme: sproogen/modern-resume-theme
+# the avatar on sidebar, support local or CORS resources
+avatar:
+
+# The URL of the site-wide social preview image used in SEO `og:image` meta tag.
+# It can be overridden by a customized `page.image` in front matter.
+social_preview_image: # string, local or CORS resources
+
+# boolean type, the global switch for TOC in posts.
+toc: true
+
+comments:
+  # Global switch for the post-comment system. Keeping it empty means disabled.
+  provider: # [disqus | utterances | giscus]
+  # The provider options are as follows:
+  disqus:
+    shortname: # fill with the Disqus shortname. › https://help.disqus.com/en/articles/1717111-what-s-a-shortname
+  # utterances settings › https://utteranc.es/
+  utterances:
+    repo: # <gh-username>/<repo>
+    issue_term: # < url | pathname | title | ...>
+  # Giscus options › https://giscus.app
+  giscus:
+    repo: # <gh-username>/<repo>
+    repo_id:
+    category:
+    category_id:
+    mapping: # optional, default to 'pathname'
+    strict: # optional, default to '0'
+    input_position: # optional, default to 'bottom'
+    lang: # optional, default to the value of `site.lang`
+    reactions_enabled: # optional, default to the value of `1`
+
+# Self-hosted static assets, optional › https://github.com/cotes2020/chirpy-static-assets
+assets:
+  self_host:
+    enabled: # boolean, keep empty means false
+    # specify the Jekyll environment, empty means both
+    # only works if `assets.self_host.enabled` is 'true'
+    env: # [development | production]
+
+pwa:
+  enabled: true # The option for PWA feature (installable)
+  cache:
+    enabled: true # The option for PWA offline cache
+    # Paths defined here will be excluded from the PWA cache.
+    # Usually its value is the `baseurl` of another website that
+    # shares the same domain name as the current website.
+    deny_paths:
+      # - "/example"  # URLs match `<SITE_URL>/example/*` will not be cached by the PWA
+
+paginate: 10
+
+# The base URL of your site
+baseurl: ""
+
+# ------------ The following options are not recommended to be modified ------------------
+
+kramdown:
+  footnote_backlink: "&#8617;&#xfe0e;"
+  syntax_highlighter: rouge
+  syntax_highlighter_opts: # Rouge Options › https://github.com/jneen/rouge#full-options
+    css_class: highlight
+    # default_lang: console
+    span:
+      line_numbers: false
+    block:
+      line_numbers: true
+      start_line: 1
+
+collections:
+  tabs:
+    output: true
+    sort_by: order
+
+defaults:
+  - scope:
+      path: "" # An empty string here means all files in the project
+      type: posts
+    values:
+      layout: post
+      comments: true # Enable comments in posts.
+      toc: true # Display TOC column in posts.
+      # DO NOT modify the following parameter unless you are confident enough
+      # to update the code of all other post links in this project.
+      permalink: /posts/:title/
+  - scope:
+      path: _drafts
+    values:
+      comments: false
+  - scope:
+      path: ""
+      type: tabs # see `site.collections`
+    values:
+      layout: page
+      permalink: /:title/
 
 sass:
-  sass_dir: _sass
   style: compressed
 
-plugins:
- - jekyll-seo-tag
- - jekyll-remote-theme
+compress_html:
+  clippings: all
+  comments: all
+  endings: all
+  profile: false
+  blanklines: false
+  ignore:
+    envs: [development]
+
+exclude:
+  - "*.gem"
+  - "*.gemspec"
+  - docs
+  - tools
+  - README.md
+  - LICENSE
+  - purgecss.js
+  - "*.config.js"
+  - "package*.json"
+
+jekyll-archives:
+  enabled: [categories, tags]
+  layouts:
+    category: category
+    tag: tag
+  permalinks:
+    tag: /tags/:name/
+    category: /categories/:name/
