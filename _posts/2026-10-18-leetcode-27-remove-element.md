@@ -1,6 +1,6 @@
 ---
 title: "[LeetCode] 27. Remove Element"
-date: 2026-10-18 22:30:00 +0900
+date: 2026-10-18 22:00:00 +0900
 categories: [Algorithm, LeetCode]
 tags: [top-interview-150, array, two-pointer, java]
 ---
