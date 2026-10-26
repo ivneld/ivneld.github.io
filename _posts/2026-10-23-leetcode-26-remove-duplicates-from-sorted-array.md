@@ -2,7 +2,7 @@
 title: "[LeetCode] 26. Remove Duplicates from Sorted Array"
 date: 2026-10-23 21:00:00 +0900
 categories: [Algorithm, LeetCode]
-tags: [top-interview-150, array, two-pointer, java]
+tags: [top-interview-150, array, two-pointer, java, 직접 해결]
 ---
 
 문제 링크: [26. Remove Duplicates from Sorted Array](https://leetcode.com/problems/remove-duplicates-from-sorted-array/description/?envType=study-plan-v2&envId=top-interview-150)

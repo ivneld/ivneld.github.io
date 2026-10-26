@@ -2,7 +2,7 @@
 title: "[LeetCode] 27. Remove Element"
 date: 2026-10-18 22:00:00 +0900
 categories: [Algorithm, LeetCode]
-tags: [top-interview-150, array, two-pointer, java]
+tags: [top-interview-150, array, two-pointer, java, 직접 해결]
 ---
 
 문제 링크: [27. Remove Element](https://leetcode.com/problems/remove-element/?envType=study-plan-v2&envId=top-interview-150)

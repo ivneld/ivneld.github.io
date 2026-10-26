@@ -2,7 +2,7 @@
 title: "[LeetCode] 88. Merge Sorted Array"
 date: 2026-10-18 20:00:00 +0900
 categories: [Algorithm, LeetCode]
-tags: [top-interview-150, array, two-pointer, java]
+tags: [top-interview-150, array, two-pointer, java, 다시 풀기]
 ---
 
 문제 링크: [88. Merge Sorted Array](https://leetcode.com/problems/merge-sorted-array/)
