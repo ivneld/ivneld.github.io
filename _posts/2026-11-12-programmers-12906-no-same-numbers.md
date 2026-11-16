@@ -20,9 +20,14 @@ tags: [stack-queue, queue, deque, java, 다시 풀기]
 
 ### 해결 여부
 
-스스로 해결하지 못한 문제다. 큐로 푸는 흐름은 세웠지만 Java 큐의 메서드 사용법을 몰라 구현하지 못했다. 나중에 풀이를 보지 않고 다시 풀어보기 위해 `다시 풀기`로 분류한다.
+스스로 해결하지 못한 문제다. 나중에 풀이를 보지 않고 다시 풀어보기 위해 `다시 풀기`로 분류한다.
 
-### 내 풀이 점검
+| 시도 | 결과 | 원인 |
+| --- | --- | --- |
+| 1차 | 해결하지 못함 | 큐로 푸는 흐름은 세웠지만 Java 큐의 메서드 사용법을 몰라 구현하지 못했다. |
+| 2차 | 해결하지 못함 | 풀이를 본 뒤 `Deque`로 다시 작성했지만 `peek()`으로 맨 앞과 비교했고, 반복 조건에 줄어드는 `dq.size()`를 썼다. 아래 2차 시도 점검 단원에서 다룬다. |
+
+### 1차 시도 점검
 
 처음 세운 흐름은 다음과 같다.
 
@@ -179,9 +184,166 @@ public class Solution {
 - 시간 복잡도: **`O(N)`**
 - 추가 공간 복잡도: **`O(N)`**
 
+## Queue와 Deque 메서드 비교
+
+**`Deque`는 `Queue`를 상속한 인터페이스다.** `Queue`의 메서드를 모두 가지고 있고, 양쪽 끝을 다루는 메서드가 더해진 구조다.
+
+> `Deque`는 Double-Ended Queue의 줄임말로 "덱"이라고 읽는다. 양쪽 끝에서 모두 넣고 꺼낼 수 있는 큐다. 철자가 비슷한 **dequeue**는 자료구조 이름이 아니라 큐에서 원소를 꺼내는 동작을 말하며, Java에서는 `poll()`이 그 동작이다.
+{: .prompt-tip }
+
+```java
+public interface Queue<E> extends Collection<E> { ... }
+public interface Deque<E> extends Queue<E> { ... }
+```
+
+`Queue`는 한쪽으로만 들어가고 반대쪽으로만 나오므로 메서드 이름에 방향이 없다. `Deque`는 양쪽을 모두 다루므로 메서드 이름에 `First`, `Last`가 붙는다.
+
+```text
+Queue   나감 <- [앞 ... 뒤] <- 들어옴
+
+Deque   <-> [앞 ... 뒤] <->
+            First    Last
+```
+
+### 공통점: Queue의 메서드는 Deque에도 있다
+
+아래 메서드는 두 인터페이스 모두에서 쓸 수 있다. `isEmpty`와 `size`는 그 위의 `Collection`에서 물려받은 것이다.
+
+| 메서드 | Queue에서의 의미 | Deque에서 같은 동작 |
+| --- | --- | --- |
+| `offer(x)` | 뒤에 넣기 | `offerLast(x)` |
+| `poll()` | 앞에서 꺼내기 | `pollFirst()` |
+| `peek()` | 앞을 보기 | `peekFirst()` |
+| `isEmpty()` | 비었는지 확인 | 같음 |
+| `size()` | 원소 개수 | 같음 |
+
+`Deque`에서 `offer`와 `offerLast`는 이름만 다른 같은 메서드다. **`peek()`은 `Queue`에서도 `Deque`에서도 맨 앞을 본다.** `Deque`가 `Queue`의 `peek()`을 물려받았으므로 동작이 달라지지 않는다.
+
+### 차이점: Deque에만 있는 메서드
+
+| 동작 | 앞(First) | 뒤(Last) |
+| --- | --- | --- |
+| 넣기 | `offerFirst(x)` | `offerLast(x)` |
+| 꺼내기 | `pollFirst()` | `pollLast()` |
+| 보기 | `peekFirst()` | `peekLast()` |
+
+- **Queue에도 있는 동작**: 뒤에 넣기, 앞에서 꺼내기, 앞을 보기. `offer`, `poll`, `peek`으로도 부를 수 있다.
+- **Deque에만 있는 동작**: 앞에 넣기, 뒤에서 꺼내기, 뒤를 보기. `offerFirst`, `pollLast`, `peekLast`로만 부를 수 있다.
+
+이 문제에서 필요한 "직전에 넣은 원소 보기"가 **뒤를 보기**다. `Queue`에는 뒤를 보는 메서드가 아예 없으므로 `Deque`를 쓴다.
+
+```text
+앞 [2, 5, 7] 뒤
+ ↑        ↑
+peek()    peekLast()  <- Deque에만 있음
+```
+
+### 쓸 수 있는 메서드는 변수 타입이 정한다
+
+구현체 `ArrayDeque`는 두 인터페이스를 모두 구현하지만, 부를 수 있는 메서드는 변수의 선언 타입이 정한다.
+
+```java
+Queue<Integer> q = new ArrayDeque<>();
+q.offer(1);     // 가능
+q.peekLast();   // 컴파일 에러. Queue 타입에는 이 메서드가 없다
+
+Deque<Integer> dq = new ArrayDeque<>();
+dq.offer(1);    // 가능. Queue에서 물려받은 메서드
+dq.peekLast();  // 가능. Deque에 추가된 메서드
+```
+
+### 풀이 2에서 offerLast, pollFirst를 쓴 이유
+
+기능상 이유는 없고 방향을 코드에 드러내기 위해서다. `offer`, `poll`로 바꿔도 결과는 같다. 꼭 필요한 Deque 전용 메서드는 `peekLast()` 하나다.
+
+- `peekLast()`가 이미 "뒤"를 명시하므로 `offerLast`와 함께 쓰면 "뒤에 넣고, 뒤를 본다"가 바로 보인다.
+- `pollFirst`를 쓰면 "앞에서 꺼낸다"가 보여 순서가 유지된다는 점이 드러난다.
+
+> `Deque`의 스택용 메서드 `push(x)`는 앞에 넣고(`offerFirst`와 같은 위치) `pop()`은 앞에서 꺼낸다(`pollFirst`와 같은 위치). `offer`와 `push`를 섞으면 순서가 꼬인다. 큐로 쓸 때는 `offer`와 `poll`, 스택으로 쓸 때는 `push`와 `pop`만 쓰거나, `First`와 `Last`를 붙인 이름으로 통일한다.
+{: .prompt-warning }
+
+## 2차 시도 점검
+
+풀이를 본 뒤 `Deque`로 다시 작성한 코드다. `[2, 2, 5, 5, 7, 2, 2]`에 대해 정답 `[2, 5, 7, 2]` 대신 `[2, 5, 0, 0]`을 반환한다.
+
+```java
+import java.util.*;
+
+public class Solution {
+    public int[] solution(int []arr) {
+        Deque<Integer> dq = new ArrayDeque<>();
+        
+        for (int a : arr) {
+            if (dq.isEmpty() || dq.peek() != a) dq.offer(a);
+        }
+        
+        int[] result = new int[dq.size()];
+        for (int i = 0; i < dq.size(); i++) {
+            result[i] = dq.poll();
+        }
+        
+        return result;
+    }
+}
+```
+
+### peek()은 맨 앞을 본다
+
+`Deque`의 `peek()`은 `peekFirst()`와 같다. 1차 시도와 같은 실수, 즉 **큐의 맨 앞과 비교**를 하고 있다. 직전에 넣은 원소를 보려면 `peekLast()`를 써야 한다. `offer`는 뒤에 넣는 메서드이므로 그대로 둬도 된다.
+
+```java
+if (dq.isEmpty() || dq.peekLast() != a) dq.offer(a);
+```
+
+### 반복 중에 dq.size()가 줄어든다
+
+`poll()`은 원소를 꺼내면서 제거한다. 반복할 때마다 `i`는 커지고 `dq.size()`는 작아져서 절반쯤에서 반복이 끝난다. 원소가 4개일 때의 흐름은 다음과 같다.
+
+| `i` | 조건 검사 시 `dq.size()` | `i < size` | 동작 |
+| --- | --- | --- | --- |
+| 0 | 4 | 참 | 꺼내서 `result[0]`에 저장 |
+| 1 | 3 | 참 | 꺼내서 `result[1]`에 저장 |
+| 2 | 2 | 거짓 | 반복 종료 |
+
+`result[2]`, `result[3]`은 채워지지 않아 기본값 `0`으로 남는다. 반복 조건을 배열을 만들 때 고정되는 `result.length`로 바꾸면 된다. `while (!dq.isEmpty())`로 비우거나, 반복 전에 크기를 변수에 저장해도 된다.
+
+> `poll()`, `pop()`처럼 원소를 제거하는 메서드를 반복 안에서 부르면 `size()`가 매번 줄어 반복이 일찍 끝난다. 큐나 스택을 비울 때는 `while (!q.isEmpty())`나 미리 고정한 크기를 쓴다.
+{: .prompt-warning }
+
+### 두 버그가 함께 있을 때
+
+1. 앞과 비교해서 덱에 `[2, 5, 5, 7]`이 쌓인다. 연속된 `5`를 거르지 못했고 마지막 `2`는 빠졌다.
+2. 반복문이 2번만 돌아서 `[2, 5, 0, 0]`이 반환된다.
+
+### 고친 코드
+
+```java
+import java.util.*;
+
+public class Solution {
+    public int[] solution(int[] arr) {
+        Deque<Integer> dq = new ArrayDeque<>();
+
+        for (int a : arr) {
+            if (dq.isEmpty() || dq.peekLast() != a) dq.offer(a);
+        }
+
+        int[] result = new int[dq.size()];
+        for (int i = 0; i < result.length; i++) {
+            result[i] = dq.poll();
+        }
+
+        return result;
+    }
+}
+```
+
 ## 다시 풀 때 생각할 점
 
 - 비교 대상은 큐의 앞이 아니라 직전에 넣은 원소다. 큐의 앞은 가장 먼저 들어간 원소라서 연속 여부를 판단할 수 없다.
 - `Queue`는 앞만 볼 수 있다. 뒤를 봐야 하면 변수로 따로 들고 있거나 `Deque`의 `peekLast()`를 쓴다.
 - 큐 기본 메서드는 `offer`(넣기), `peek`(보기), `poll`(꺼내기), `isEmpty`, `size`다.
+- `peek()`은 `Queue`와 `Deque` 모두에서 맨 앞을 본다. 뒤를 보려면 `peekLast()`다.
+- `Deque`는 `Queue`를 상속한다. 부를 수 있는 메서드는 변수의 선언 타입이 정한다.
+- 반복하면서 꺼내는 컬렉션의 `size()`를 반복 조건에 쓰지 않는다. `result.length`나 `while (!q.isEmpty())`를 쓴다.
 - 배열은 크기를 정해서 만든다. `new int[]`가 아니라 `new int[q.size()]`다.
